@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: build-suite-test-component-git-source-ftvl
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: build-suite-test-component-git-source-ftvl
+    app.kubernetes.io/part-of: build-suite-test-application-qyym
+  name: build-suite-test-component-git-source-ftvl
+  namespace: build-e2e-4bfe2ada-5c95-4db9-8a88-8417c76264e2
+spec:
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: build-suite-test-component-git-source-ftvl
+    weight: 100
+status: {}

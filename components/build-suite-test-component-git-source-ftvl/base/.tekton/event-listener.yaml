@@ -1,0 +1,26 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  annotations:
+    build.appstudio.openshift.io/application: build-suite-test-application-qyym
+    build.appstudio.openshift.io/build: "true"
+    build.appstudio.openshift.io/component: build-suite-test-component-git-source-ftvl
+    build.appstudio.openshift.io/type: build
+    build.appstudio.openshift.io/version: "0.1"
+    pipelines.appstudio.openshift.io/type: build
+  creationTimestamp: null
+  name: build-suite-test-component-git-source-ftvl
+  namespace: build-e2e-4bfe2ada-5c95-4db9-8a88-8417c76264e2
+spec:
+  namespaceSelector: {}
+  resources: {}
+  serviceAccountName: pipeline
+  triggers:
+  - bindings:
+    - kind: ClusterTriggerBinding
+      ref: github-push
+    template:
+      ref: build-suite-test-component-git-source-ftvl
+status:
+  configuration:
+    generatedName: ""
